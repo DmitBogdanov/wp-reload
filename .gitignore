@@ -1,3 +1,62 @@
 *.md
 *.code-workspace
 *.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs / temp
+*.log
+*.tmp
+tmp/
+temp/
+
+# PHP
+/vendor/
+.phpunit.result.cache
+.phpunit.cache/
+
+# Node / JavaScript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.npm/
+.cache/
+dist/
+build/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+
+# Archives / generated files
+*.zip
+*.tar
+*.gz
