@@ -1,7 +1,8 @@
-
+.gitignore
 todo_WPreload_github.md
 *.code-workspace
 *.txt
+_wf/
 
 # OS
 .DS_Store
