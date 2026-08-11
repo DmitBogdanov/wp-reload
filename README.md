@@ -1,4 +1,5 @@
 # WP Reload — information page
+[![CI](https://github.com/DmitBogdanov/wp-reload/actions/workflows/ci.yml/badge.svg)](https://github.com/DmitBogdanov/wp-reload/actions/workflows/ci.yml)
 
 Экспертный информационный проект о **WordPress**, **доработке WordPress**, обновлении, поддержке и продвижении сайтов.
 
