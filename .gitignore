@@ -1,7 +1,7 @@
 .gitignore
 todo_WPreload_github.md
 *.code-workspace
-*.txt
+*GIT.txt
 _wf/
 
 # OS

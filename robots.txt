@@ -1,0 +1,14 @@
+# robots.txt для страницы https://wordpress.forcej.ru/information/
+#
+# Если в проекте используется отдельный домен/поддомен (например, GitHub Pages) —
+# этот файл можно использовать как есть, разместив в корне сайта.
+#
+# Если страница публикуется как раздел уже существующего сайта wordpress.forcej.ru,
+# в его основной robots.txt нужно убедиться, что раздел /information/ НЕ запрещён,
+# и добавить строку Sitemap ниже в уже существующий файл.
+
+User-agent: *
+Allow: /
+Allow: /information/
+
+Sitemap: https://wordpress.forcej.ru/sitemap-information.xml
