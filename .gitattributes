@@ -1,0 +1,14 @@
+# WP Reload — language classification
+
+examples/php/**/*.php linguist-language=PHP
+examples/js/**/*.js linguist-language=JavaScript
+examples/html/**/*.html linguist-language=HTML
+examples/css/**/*.css linguist-language=CSS
+examples/python/**/*.py linguist-language=Python
+examples/aspnet/**/*.aspx linguist-language=ASP.NET
+examples/nginx/**/*.conf linguist-language=Nginx
+examples/apache/**/*.htaccess linguist-language=Apache
+examples/Dockerfile linguist-language=Dockerfile
+
+# Keep examples visible in repository language statistics
+examples/** linguist-detectable
