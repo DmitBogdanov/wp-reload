@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -52,7 +52,7 @@ jobs:
           fi
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '22'
 
@@ -78,7 +78,7 @@ jobs:
           fi
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
@@ -94,19 +94,42 @@ jobs:
         shell: bash
         run: |
           set -e
-          test -f README.md
-          test -f LICENSE
-          test -f docs/index.md
-          test -f robots.txt
-          test -f sitemap.xml
-          test -f examples/php/index.php
-          test -f examples/js/script.js
-          test -f examples/html/index.html
-          test -f examples/css/style.css
-          test -f examples/python/main.py
-          test -f examples/aspnet/Default.aspx
-          test -f examples/nginx/nginx.conf
-          test -f examples/apache/.htaccess
-          test -f Dockerfile
-          test -f package.json
-          test -f composer.json
+
+          files=(
+            "README.md"
+            "LICENSE"
+            "docs/index.md"
+            "robots.txt"
+            "sitemap.xml"
+            "examples/php/index.php"
+            "examples/js/script.js"
+            "examples/html/index.html"
+            "examples/css/style.css"
+            "examples/python/main.py"
+            "examples/aspnet/Default.aspx"
+            "examples/nginx/nginx.conf"
+            "examples/apache/.htaccess"
+            "Dockerfile"
+            "package.json"
+            "composer.json"
+          )
+
+          failed=0
+
+          for file in "${files[@]}"; do
+            if [ -f "$file" ]; then
+              echo "✓ $file"
+            else
+              echo "✗ MISSING: $file"
+              failed=1
+            fi
+          done
+
+          if [ "$failed" -ne 0 ]; then
+            echo ""
+            echo "Repository structure check failed."
+            exit 1
+          fi
+
+          echo ""
+          echo "All required repository files are present."
