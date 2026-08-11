@@ -1,0 +1,112 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lint-and-test:
+    name: Lint and syntax checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer
+
+      - name: Validate composer.json
+        run: composer validate --no-check-publish
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: PHP syntax check
+        shell: bash
+        run: |
+          set -e
+          if find examples/php -type f -name '*.php' -print -quit | grep -q .; then
+            while IFS= read -r -d '' file; do
+              php -l "$file"
+            done < <(find examples/php -type f -name '*.php' -print0)
+          fi
+
+      - name: PHP_CodeSniffer
+        shell: bash
+        run: |
+          set -e
+          if [ -x vendor/bin/phpcs ]; then
+            vendor/bin/phpcs examples/php --standard=PSR12
+          else
+            echo "PHP_CodeSniffer is not installed in composer dependencies; skipping PHPCS."
+          fi
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Node dependencies
+        shell: bash
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: JavaScript syntax check
+        run: node --check examples/js/script.js
+
+      - name: ESLint
+        shell: bash
+        run: |
+          if npm run | grep -qE '^  lint'; then
+            npm run lint
+          else
+            echo "No npm lint script configured; skipping ESLint."
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Python syntax check
+        run: python -m compileall -q examples/python
+
+      - name: Python lint
+        run: |
+          python -m pip install --disable-pip-version-check flake8
+          flake8 examples/python
+
+      - name: Basic repository tests
+        shell: bash
+        run: |
+          set -e
+          test -f README.md
+          test -f LICENSE
+          test -f docs/index.md
+          test -f robots.txt
+          test -f sitemap.xml
+          test -f examples/php/index.php
+          test -f examples/js/script.js
+          test -f examples/html/index.html
+          test -f examples/css/style.css
+          test -f examples/python/main.py
+          test -f examples/aspnet/Default.aspx
+          test -f examples/nginx/nginx.conf
+          test -f examples/apache/.htaccess
+          test -f Dockerfile
+          test -f package.json
+          test -f composer.json
