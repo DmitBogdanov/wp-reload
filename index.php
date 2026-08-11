@@ -209,6 +209,7 @@ $jsonLdEncoded = json_encode(
 <link rel="alternate" hreflang="ru" href="<?= PAGE_URL ?>">
 <link rel="alternate" hreflang="x-default" href="<?= PAGE_URL ?>">
 <link rel="icon" href="<?= LOGO_URL ?>" sizes="83x83">
+<link rel="preload" as="image" href="<?= LOGO_URL ?>">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -237,7 +238,7 @@ $jsonLdEncoded = json_encode(
 
 <header class="site-header">
   <div class="container">
-    <img src="<?= LOGO_URL ?>" width="<?= LOGO_SIZE ?>" height="<?= LOGO_SIZE ?>" alt="<?= SITE_NAME ?>" style="vertical-align:middle;border-radius:8px;">
+    <img src="<?= LOGO_URL ?>" width="<?= LOGO_SIZE ?>" height="<?= LOGO_SIZE ?>" alt="<?= SITE_NAME ?>" >
     <strong style="margin-left:.6rem;"><?= SITE_NAME ?></strong>
   </div>
 </header>
@@ -249,8 +250,13 @@ $jsonLdEncoded = json_encode(
     <p class="lead">
       WP Reload — блог с практическими инструкциями для владельцев сайтов на WordPress,
       у которых нет опыта веб-разработки. Полный лонгрид с разбором всех тем —
-      на странице <a href="docs/index.md">«О проекте подробно»</a>.
+      на странице <a href="<?= SOURCE_URL ?>o-proekte/">О проекте подробно</a>.
     </p>
+    <ul class="hero-benefits">
+        <li>Практические инструкции</li>
+        <li>Проверено на реальных проектах</li>
+        <li>Без сложного технического языка</li>
+        </ul>
   </section>
 
   <section class="key-facts" id="key-facts" aria-label="Коротко о проекте">
@@ -271,6 +277,15 @@ $jsonLdEncoded = json_encode(
       Все материалы — на <a href="<?= SOURCE_URL ?>">wordpress.forcej.ru</a>.
     </div>
   </section>
+  <nav class="toc" aria-label="Содержание">
+  <h2>Содержание</h2>
+  <ol>
+    <li><a href="#topics">О проекте</a></li>
+    <li><a href="#howto">Как доработать сайт</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#related">Читайте также</a></li>
+  </ol>
+</nav>
 
   <section id="topics">
     <h2>О чём проект</h2>
