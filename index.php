@@ -249,8 +249,8 @@ $jsonLdEncoded = json_encode(
     <h1>Доработка, обновление и настройка сайта на WordPress</h1>
     <p class="lead">
       WP Reload — блог с практическими инструкциями для владельцев сайтов на WordPress,
-      у которых нет опыта веб-разработки. Полный лонгрид с разбором всех тем —
-      на странице <a href="<?= SOURCE_URL ?>o-proekte/">О проекте подробно</a>.
+      у которых нет опыта веб-разработки. Полный текст с разбором всех тем —
+      на странице <a href="https://github.com/DmitBogdanov/wp-reload/blob/main/docs/index.md">О проекте подробно</a>.
     </p>
     <ul class="hero-benefits">
         <li>Практические инструкции</li>
