@@ -19,3 +19,11 @@
 WP Reload — экспертный блог для владельцев WordPress-сайтов, не обладающих глубокими познаниями в веб-разработке.
 
 Основной сайт: https://wordpress.forcej.ru/
+
+## Сообщество
+
+Вопросы, предложения по материалам и обсуждение практических решений для WordPress можно размещать в [GitHub Discussions](https://github.com/DmitBogdanov/wp-reload/discussions).
+
+- **Questions & Answers** — вопросы по WordPress и материалам проекта.
+- **Ideas** — предложения новых тем и улучшений.
+- **General** — общие обсуждения.
