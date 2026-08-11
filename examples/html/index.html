@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Пример: семантическая разметка HTML5</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>WP Reload — пример HTML5-разметки</h1>
+    <nav aria-label="Оглавление примера">
+      <ul>
+        <li><a href="#article-1">Доработка WordPress</a></li>
+        <li><a href="#article-2">Обновление WordPress</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article id="article-1">
+      <h2>Доработка WordPress</h2>
+      <p>Пример статьи, оформленной семантическим тегом <code>&lt;article&gt;</code>: заголовок, текст, отдельный смысловой блок.</p>
+    </article>
+
+    <article id="article-2">
+      <h2>Обновление WordPress</h2>
+      <p>Второй блок демонстрирует, что на странице может быть несколько независимых статей внутри одного <code>&lt;main&gt;</code>.</p>
+    </article>
+
+    <section aria-label="Статус подсветки TOC">
+      <p id="active-section-label">Активный раздел: —</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Пример подготовлен для проекта <a href="https://wordpress.forcej.ru/">WP Reload</a>.</p>
+  </footer>
+
+  <script type="module" src="../js/script.js"></script>
+</body>
+</html>

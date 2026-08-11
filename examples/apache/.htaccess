@@ -1,0 +1,24 @@
+# .htaccess — минимальный пример правил Apache для статической части проекта.
+# Проверка синтаксиса: apachectl configtest (при подключённом mod_rewrite/mod_expires)
+
+# Отключаем листинг директорий
+Options -Indexes
+
+# Редирект с www на без-www (пример правила редиректа)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.wordpress\.forcej\.ru [NC]
+RewriteRule ^(.*)$ https://wordpress.forcej.ru/$1 [L,R=301]
+
+# Кэширование статических ресурсов
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 30 days"
+    ExpiresByType application/javascript "access plus 30 days"
+    ExpiresByType image/png "access plus 30 days"
+    ExpiresByType image/webp "access plus 30 days"
+    ExpiresByType image/avif "access plus 30 days"
+</IfModule>
+
+# Явные MIME-типы для sitemap и robots
+AddType application/xml .xml
+AddType text/plain .txt

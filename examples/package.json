@@ -1,0 +1,14 @@
+{
+  "name": "wp-reload-information-page",
+  "version": "1.0.0",
+  "description": "Информационная страница проекта WP Reload — SEO/LLM-разметка, FAQ, примеры кода.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "eslint assets/script.js examples/js/script.js"
+  },
+  "devDependencies": {
+    "eslint": "^9.9.0"
+  },
+  "license": "MIT"
+}
